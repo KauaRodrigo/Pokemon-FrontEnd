@@ -19,24 +19,29 @@ function signup(){
     <section class="login">
         <Login @set="signup" :class="{'show': login}" />
         <Registrar @set="signin" :class="{'show': !login}" />
-        <div :class="{'active-login': login, 'active-registro': !login}" class="active" />        
+        <div :class="{'active-login': login, 'active-registro': !login}" class="active" >        
+            <img :class="{'active-img': !login, 'charizard': true}" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="">
+            <img src="https://seeklogo.com/images/C/charmander-logo-AC289C2CDD-seeklogo.com.png" :class="{'active-img': login, 'charmander': true}" />
+        </div>
     </section>    
 </template>
 <style>
 
 .login {
-    width: 100vw;
-    height: 100vh;   
+    width: 100%;
+    height: 100%;   
     display: flex; 
 }
 
 .active {
     background-color: rgb(216, 32, 32);    
     width: 50vw;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     z-index: 1000;    
     left: 0;
+    display: grid;
+    place-items: center;
 }
 
 .active-login {
@@ -47,6 +52,29 @@ function signup(){
 .active-registro {
     transition: margin-left 1s;
     margin-left: 50%;
+}
+
+.charmander {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;      
+    opacity: 0;
+    height: 40%;
+}
+
+.charizard {
+    position: absolute;
+    top: 25%;
+    left: 25%;    
+    width: 50%;    
+    opacity: 0;
+    height: 50%;
+}
+
+.active-img {    
+    transition: opacity 1s;
+    opacity: 1;
 }
 
 .show {
