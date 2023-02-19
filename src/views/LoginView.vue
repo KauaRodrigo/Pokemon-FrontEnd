@@ -55,7 +55,7 @@ function signup(){
 }
 
 .charmander { 
-    filter: brightness(0%) drop-shadow(8px 8px 10px black);    
+    filter: drop-shadow(8px 8px 10px black);    
     transition: filter 1s;
     position: absolute;
     top: 30%;
@@ -65,13 +65,8 @@ function signup(){
     height: 40%;
 }
 
-.charmander:hover {
-    filter: brightness(100%) drop-shadow(8px 8px 10px black);    
-    transition: filter 1s;
-}
-
 .charizard {     
-    filter: brightness(0%) drop-shadow(8px 8px 10px black);    
+    filter: drop-shadow(8px 8px 10px black);    
     transition: filter 1s;
     position: absolute;
     top: 25%;
@@ -79,11 +74,6 @@ function signup(){
     width: 50%;    
     opacity: 0;
     height: 50%;
-    transition: filter 1s;
-}
-
-.charizard:hover {
-    filter: brightness(100%) drop-shadow(8px 8px 10px black);    
     transition: filter 1s;
 }
 
