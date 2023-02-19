@@ -20,8 +20,8 @@ function signup(){
         <Login @set="signup" :class="{'show': login}" />
         <Registrar @set="signin" :class="{'show': !login}" />
         <div :class="{'active-login': login, 'active-registro': !login}" class="active" >        
-            <img :class="{'active-img': !login, 'charizard': true}" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="">
-            <img src="https://seeklogo.com/images/C/charmander-logo-AC289C2CDD-seeklogo.com.png" :class="{'active-img': login, 'charmander': true}" />
+            <img v-if="!login" :class="{'active-img': !login, 'charizard': true}" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="">
+            <img v-else src="https://seeklogo.com/images/C/charmander-logo-AC289C2CDD-seeklogo.com.png" :class="{'active-img': login, 'charmander': true}" />
         </div>
     </section>    
 </template>
@@ -54,7 +54,9 @@ function signup(){
     margin-left: 50%;
 }
 
-.charmander {
+.charmander { 
+    filter: brightness(0%) drop-shadow(8px 8px 10px black);    
+    transition: filter 1s;
     position: absolute;
     top: 30%;
     left: 30%;
@@ -63,13 +65,26 @@ function signup(){
     height: 40%;
 }
 
-.charizard {
+.charmander:hover {
+    filter: brightness(100%) drop-shadow(8px 8px 10px black);    
+    transition: filter 1s;
+}
+
+.charizard {     
+    filter: brightness(0%) drop-shadow(8px 8px 10px black);    
+    transition: filter 1s;
     position: absolute;
     top: 25%;
     left: 25%;    
     width: 50%;    
     opacity: 0;
     height: 50%;
+    transition: filter 1s;
+}
+
+.charizard:hover {
+    filter: brightness(100%) drop-shadow(8px 8px 10px black);    
+    transition: filter 1s;
 }
 
 .active-img {    

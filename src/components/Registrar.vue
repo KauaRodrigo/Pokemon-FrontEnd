@@ -44,7 +44,7 @@ function set() {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-left: 4px solid black;
+  border-left: 8px solid black;
 }
 
 button {

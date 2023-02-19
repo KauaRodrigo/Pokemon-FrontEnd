@@ -1,7 +1,22 @@
 <script setup>
-import { defineEmits } from 'vue';
+import {api} from '../api.service'
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter()
 const emits = defineEmits(['set'])
+let pokemon = {}
+
+onMounted(async () => {    
+    pokemon = await api.get('/').then((res) => {
+        return res.data
+    })
+    console.log(pokemon)
+})
+
+function redirect(){
+    router.push('/')
+}
 
 function set(){
     emits('set')
@@ -15,7 +30,7 @@ function set(){
             <input class="input" type="email" name="email" placeholder="What's your email address">        
             <label>Password</label>
             <input class="input" type="password" name="password" placeholder="shhhhhhhh!">                    
-            <button type="button">Logar</button>
+            <button @click="redirect" type="button">Logar</button>
             <a class="haveAccount" @click="set">Não tem uma conta?</a>
         </form>        
     </div>
@@ -27,7 +42,7 @@ function set(){
     width: 50vw;
     margin-left: auto;    
     display: grid;
-    border-right: 4px solid black;
+    border-right: 8px solid black;
     place-items: center;
 }
 
