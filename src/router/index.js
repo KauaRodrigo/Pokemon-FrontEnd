@@ -7,7 +7,7 @@ const router = createRouter({
   routes: [
     {
       path: '/login',
-      name: 'home',
+      name: 'Login',
       component: Login
     },    
     {
@@ -16,6 +16,12 @@ const router = createRouter({
       component: Main,
     }
   ]
+})
+
+router.beforeEach((to, from) => {
+  if(!localStorage.getItem('access-key') && to.name != 'Login'){
+    return { name: 'Login' }
+  }
 })
 
 export default router

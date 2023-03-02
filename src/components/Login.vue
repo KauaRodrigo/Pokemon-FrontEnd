@@ -1,20 +1,13 @@
 <script setup>
-import {api} from '../api.service'
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { v4 as uuidv4 } from 'uuid'
 
 const router = useRouter()
 const emits = defineEmits(['set'])
-let pokemon = {}
-
-onMounted(async () => {    
-    pokemon = await api.get('/').then((res) => {
-        return res.data
-    })
-    console.log(pokemon)
-})
 
 function redirect(){
+    localStorage.setItem('access-key', uuidv4())
     router.push('/')
 }
 
