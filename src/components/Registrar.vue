@@ -8,7 +8,7 @@ function set() {
 }
 </script>
 <template>
-  <div class="signup">
+  <div id="signup-section">
     <form>
         <label>Name</label>
         <input class="input" type="text" name="name" placeholder="What's your name?">
@@ -36,7 +36,7 @@ function set() {
   </div>
 </template>
 <style scoped>
-.signup {
+#signup-section {
   min-height: 100vh;
   width: 50vw;
   margin-left: auto;

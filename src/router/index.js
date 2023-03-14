@@ -19,6 +19,11 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
+  if(localStorage.getItem('access-key') && to.name == 'Login'){
+    localStorage.removeItem('access-key')
+    return { name: 'Login' }
+  }
+
   if(!localStorage.getItem('access-key') && to.name != 'Login'){
     return { name: 'Login' }
   }
